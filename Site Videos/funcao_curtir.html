@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<a href="javascript:void(0);" id="curtir" data-id="1">0</a>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			// cria o evento on click
+			$("#curtir").on("click", function(){
+				var btn = $(this);
+
+				// verifica se o botão já está desabilitado; se sim, retorna;
+				if($(btn).hasClass("disabled")){
+					return;
+				}
+
+				// desabilita o botão
+				$(btn).addClass("disabled");
+
+				// chama o arquivo curtir.php através de post e passa o id do vídeo atual via parametro ($_POST['id']) e recebe o retorno através da variável data
+				$.post("curtir.php", {id: $(btn).data("id") }, function(data){
+					// echo true ou echo false;
+					// se data for false, reabilita o botão; senão não faz nada
+					if(!data){
+						$(btn).removeClass("disabled");
+						return;
+					}
+
+					$(btn).html(parseInt($(btn).html())+1);
+				});
+			});
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px; height: 0; overflow: hidden;
+}
+ 
+.video-container iframe,
+.video-container object,
+.video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.entry-content {
+    font-size: 1.2em;
+    width: 80%;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.align-left {
+	float: left;
+}
+.align-right {
+	float: right;
+}
+
+.divPai{
+	position: relative;
+	width: 260px;
+	height: 180px;
+}
+
+.divPai iframe{
+	position: absolute;
+	z-index:1;
+}
+
+.divFilho{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: 1000;
+}
+
+.divFilho:hover {
+	border-style: solid;
+    border-color: #0088cc;
+	border-radius: 1px;
+}
